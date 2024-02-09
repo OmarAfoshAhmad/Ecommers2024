@@ -6,18 +6,21 @@ class CustomTextFormAuth extends StatelessWidget {
   final String label;
   final Icon icon;
   final bool isPassword;
+  final TextEditingController mycontroller;
   const CustomTextFormAuth(
       {super.key,
       required this.hint,
       required this.label,
       required this.icon,
-      this.isPassword = false});
+      this.isPassword = false,
+      required this.mycontroller});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric( vertical: 15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       child: TextFormField(
+        controller: mycontroller,
         obscureText: isPassword,
         decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.always,

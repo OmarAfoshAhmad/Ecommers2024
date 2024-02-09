@@ -13,13 +13,13 @@ class LocalController extends GetxController {
 
   @override
   void onInit() {
-    String? Lang = services.cache.getString("lang");
-    if (Lang == "ar") {
+    String? lang = services.cache.getString("lang");
+    if (lang == "ar") {
       currentLang = const Locale("ar");
-    } else if (Lang == "en") {
+    } else if (lang == "en") {
       currentLang = const Locale("en");
     } else {
-      currentLang =Locale(Get.deviceLocale!.languageCode) ;
+      currentLang = Locale(Get.deviceLocale!.languageCode);
     }
     super.onInit();
   }

@@ -36,7 +36,7 @@ class CustomSocialMedia extends StatelessWidget {
               color: Colors.black54,
             ),
             padding: const EdgeInsets.all(6),
-            child: const Icon(Icons.soc, color: Colors.white, size: 30))
+            child: const Icon(Icons.apple, color: Colors.white, size: 30))
       ]),
     );
   }

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 class CustomButtonLang extends StatelessWidget {
   final String text;
   final double? margin;
-  void Function()? onPressed;
+  final void Function()? onPressed;
 
-   CustomButtonLang({super.key, required this.text, this.margin = 10,this.onPressed});
+   const CustomButtonLang({super.key, required this.text, this.margin = 10,this.onPressed});
 
   @override
   Widget build(BuildContext context) {

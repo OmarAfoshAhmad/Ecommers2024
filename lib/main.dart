@@ -2,7 +2,7 @@ import 'package:ecommers2024/core/localization/locale_controller.dart';
 import 'package:ecommers2024/core/localization/translation.dart';
 import 'package:ecommers2024/core/services/setting_app.dart';
 import 'package:ecommers2024/routes.dart';
-import 'package:ecommers2024/view/screen/language_page.dart';
+import 'package:ecommers2024/test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: LanguageApp(),
       theme: ThemeData(fontFamily: "Playfair", primarySwatch: Colors.blue),
-      home: const LanguagePage(),
+      home: const Test(),
       locale: controller.currentLang,
       routes: routes,
     );
