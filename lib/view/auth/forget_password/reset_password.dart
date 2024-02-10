@@ -1,28 +1,24 @@
-import 'package:ecommers2024/controller/auth/forget_password_controller.dart';
-import 'package:ecommers2024/controller/auth/login_controller.dart';
+import 'package:ecommers2024/controller/auth/forget_password/reset_password_controller.dart';
 import 'package:ecommers2024/core/constant/color.dart';
-import 'package:ecommers2024/core/constant/font.dart';
 import 'package:ecommers2024/core/constant/image_asset.dart';
 import 'package:ecommers2024/view/widget/auth/custom_body.dart';
-import 'package:ecommers2024/view/widget/auth/custom_link.dart';
-import 'package:ecommers2024/view/widget/auth/custom_logo.dart';
-import 'package:ecommers2024/view/widget/auth/custom_title.dart';
 import 'package:ecommers2024/view/widget/auth/custom_button.dart';
-import 'package:ecommers2024/view/widget/auth/custom_social_media.dart';
+import 'package:ecommers2024/view/widget/auth/custom_logo.dart';
 import 'package:ecommers2024/view/widget/auth/custom_text_field.dart';
+import 'package:ecommers2024/view/widget/auth/custom_title.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller =
-        Get.put(ForgetPasswordControllerImp());
+    ResetPasswordControllerImp controller =
+        Get.put(ResetPasswordControllerImp());
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Forget Password"),
+          title: const Text("Reset Password"),
           centerTitle: true,
           foregroundColor: AppColor.grey,
           backgroundColor: AppColor.white,
@@ -35,26 +31,36 @@ class ForgetPassword extends StatelessWidget {
               const SizedBox(height: 30),
               const CustomLogoAuth(img: AppImageAsset.logo),
               const SizedBox(height: 30),
-              const CustomTitle(text: "Check Your Email"),
+              const CustomTitle(text: "New Password"),
               const SizedBox(height: 30),
               const CustomBodyAuth(
-                  body:
-                      "Plaese Enter Your Email Address To\n Recive Verfication Code"),
+                  body: "Plaese Enter New Password To \n Access App"),
               CustomTextFormAuth(
-                hint: "Enter Your Email",
-                label: "Email",
+                hint: "Enter New Password",
+                label: "Password",
                 icon: const Icon(Icons.mail_outlined),
-                mycontroller: controller.email,
+                mycontroller: controller.password,
+                keyboardType: TextInputType.visiblePassword,
+                valid: (val) {},
+              ),
+              CustomTextFormAuth(
+                hint: "RE Enter New Password",
+                label: "Password",
+                icon: const Icon(Icons.mail_outlined),
+                mycontroller: controller.confirm,
+                keyboardType: TextInputType.visiblePassword,
+                valid: (val) {},
               ),
               const SizedBox(height: 20),
               CustomButtonAuth(
-                  text: "Check",
+                  text: "Save",
                   onPressed: () {
-                    controller.goToVerfiyCode();
+                    controller.goToSuccessResetPassword();
                   }),
               const SizedBox(height: 20),
             ],
           ),
         ));
+    ;
   }
 }

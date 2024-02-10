@@ -6,9 +6,12 @@ class CustomLogoAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      img,
-      width: 180,
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+      child: Image.asset(
+        img,
+        width: 75,
+      ),
     );
   }
 }

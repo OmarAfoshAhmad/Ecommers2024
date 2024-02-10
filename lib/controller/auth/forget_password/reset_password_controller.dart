@@ -5,15 +5,16 @@ import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
   checkEmail();
-  goToSuccessSignUp();
+  goToSuccessResetPassword();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
-  late TextEditingController email;
-
+  late TextEditingController password;
+  late TextEditingController confirm;
   @override
   void onInit() {
-    email = TextEditingController();
+    password = TextEditingController();
+    confirm = TextEditingController();
     super.onInit();
   }
 
@@ -22,12 +23,13 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   void dispose() {
-    email.dispose();
+    password.dispose();
+    confirm.dispose();
     super.dispose();
   }
 
   @override
-  goToSuccessSignUp() {
-    Get.offNamed(AppRoute.successverify);
+  goToSuccessResetPassword() {
+    Get.offNamed(AppRoute.successresetpassword);
   }
 }

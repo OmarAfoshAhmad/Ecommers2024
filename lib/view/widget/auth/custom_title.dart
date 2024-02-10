@@ -12,6 +12,7 @@ class CustomTitle extends StatelessWidget {
       text,
       style: const TextStyle(
           fontWeight: FontWeight.bold, fontSize: AppFont.primaryFontHeader),
+      textAlign: TextAlign.center,
     );
   }
 }

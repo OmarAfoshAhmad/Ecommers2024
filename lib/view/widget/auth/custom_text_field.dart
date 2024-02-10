@@ -6,14 +6,19 @@ class CustomTextFormAuth extends StatelessWidget {
   final String label;
   final Icon icon;
   final bool isPassword;
+  final TextInputType? keyboardType;
   final TextEditingController mycontroller;
-  const CustomTextFormAuth(
-      {super.key,
-      required this.hint,
-      required this.label,
-      required this.icon,
-      this.isPassword = false,
-      required this.mycontroller});
+  final String? Function(String?)? valid;
+  const CustomTextFormAuth({
+    super.key,
+    required this.hint,
+    required this.label,
+    required this.icon,
+    this.isPassword = false,
+    required this.mycontroller,
+    required this.valid,
+    required this.keyboardType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +27,8 @@ class CustomTextFormAuth extends StatelessWidget {
       child: TextFormField(
         controller: mycontroller,
         obscureText: isPassword,
+        validator: valid,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: hint,

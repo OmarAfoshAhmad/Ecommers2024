@@ -1,4 +1,4 @@
-import 'package:ecommers2024/controller/auth/verify_code_controller.dart';
+import 'package:ecommers2024/controller/auth/forget_password/verify_code_controller.dart';
 import 'package:ecommers2024/core/constant/color.dart';
 import 'package:ecommers2024/core/constant/font.dart';
 import 'package:ecommers2024/core/constant/image_asset.dart';
