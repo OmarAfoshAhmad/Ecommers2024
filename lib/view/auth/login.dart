@@ -2,6 +2,7 @@ import 'package:ecommers2024/controller/auth/login_controller.dart';
 import 'package:ecommers2024/core/constant/color.dart';
 import 'package:ecommers2024/core/constant/font.dart';
 import 'package:ecommers2024/core/constant/image_asset.dart';
+import 'package:ecommers2024/core/function/alert_exit_app.dart';
 import 'package:ecommers2024/core/function/validInput.dart';
 import 'package:ecommers2024/view/widget/auth/custom_body.dart';
 import 'package:ecommers2024/view/widget/auth/custom_link.dart';
@@ -20,14 +21,16 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     LoginControlerImp controller = Get.put(LoginControlerImp());
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Sign In"),
-          centerTitle: true,
-          foregroundColor: AppColor.grey,
-          backgroundColor: AppColor.white,
-          elevation: 0,
-        ),
-        body: Container(
+      appBar: AppBar(
+        title: const Text("Sign In"),
+        centerTitle: true,
+        foregroundColor: AppColor.grey,
+        backgroundColor: AppColor.white,
+        elevation: 0,
+      ),
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Form(
             key: controller.formValid,
@@ -42,23 +45,28 @@ class Login extends StatelessWidget {
                 CustomTextFormAuth(
                   hint: "Enter Your Email",
                   label: "Email",
-                  icon: const Icon(Icons.mail_outlined),
+                  icon: Icons.mail_outlined,
                   mycontroller: controller.email,
                   keyboardType: TextInputType.emailAddress,
                   valid: (val) {
                     return validInput(val!, 5, 100, "email");
                   },
                 ),
-                CustomTextFormAuth(
-                  hint: "Enter Your Password",
-                  label: "Password",
-                  isPassword: true,
-                  icon: const Icon(Icons.lock_outlined),
-                  mycontroller: controller.password,
-                  keyboardType: TextInputType.visiblePassword,
-                  valid: (val) {
-                    return validInput(val!, 5, 30, "password");
-                  },
+                GetBuilder<LoginControlerImp>(
+                  builder: (controller) => CustomTextFormAuth(
+                    hint: "Enter Your Password",
+                    label: "Password",
+                    isPassword: controller.isShowPassword,
+                    icon: Icons.lock_outlined,
+                    mycontroller: controller.password,
+                    keyboardType: TextInputType.visiblePassword,
+                    onTapIcon: () {
+                      controller.showPassword();
+                    },
+                    valid: (val) {
+                      return validInput(val!, 5, 30, "password");
+                    },
+                  ),
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -89,6 +97,8 @@ class Login extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

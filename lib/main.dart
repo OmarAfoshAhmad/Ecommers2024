@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: "Playfair", primarySwatch: Colors.blue),
       home: const LanguagePage(),
       locale: controller.currentLang,
-      routes: routes,
+      getPages: routes,
       initialBinding: MyBinding(),
     );
   }

@@ -10,12 +10,14 @@ abstract class LoginController extends GetxController {
   loginWithApple();
   goToSignUp();
   goToForgetPassword();
+  showPassword();
 }
 
 class LoginControlerImp extends LoginController {
   GlobalKey<FormState> formValid = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
+  bool isShowPassword = true;
   @override
   loginWithApple() {}
 
@@ -24,7 +26,7 @@ class LoginControlerImp extends LoginController {
     var formdata = formValid.currentState;
     if (formdata!.validate()) {
       print("valid");
-    }else{
+    } else {
       print("not valid");
     }
   }
@@ -60,5 +62,12 @@ class LoginControlerImp extends LoginController {
   @override
   goToForgetPassword() {
     Get.offAllNamed(AppRoute.forgetpassword);
+  }
+
+  @override
+  showPassword() {
+    isShowPassword = isShowPassword == true ? false : true;
+    print(isShowPassword);
+    update();
   }
 }

@@ -38,7 +38,7 @@ class ResetPassword extends StatelessWidget {
               CustomTextFormAuth(
                 hint: "Enter New Password",
                 label: "Password",
-                icon: const Icon(Icons.mail_outlined),
+                icon: Icons.mail_outlined,
                 mycontroller: controller.password,
                 keyboardType: TextInputType.visiblePassword,
                 valid: (val) {},
@@ -46,7 +46,7 @@ class ResetPassword extends StatelessWidget {
               CustomTextFormAuth(
                 hint: "RE Enter New Password",
                 label: "Password",
-                icon: const Icon(Icons.mail_outlined),
+                icon: Icons.mail_outlined,
                 mycontroller: controller.confirm,
                 keyboardType: TextInputType.visiblePassword,
                 valid: (val) {},
