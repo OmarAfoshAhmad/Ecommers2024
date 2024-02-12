@@ -1,4 +1,6 @@
 class AppRoute {
+  static const String lang = "/";
+
   static const String login = "/login";
   static const String signup = "/signup";
   static const String profile = "/profile";
@@ -21,7 +23,7 @@ class AppRoute {
 
 // General Pages -------------------
 
-  static const String lang = "/lang";
+  
   static const String onboarding = "/onboarding";
 
   // --------------------------

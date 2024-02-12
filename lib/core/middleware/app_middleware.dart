@@ -5,13 +5,12 @@ import 'package:get/get.dart';
 
 class AppMiddleware extends GetMiddleware {
   @override
-  int? get priority => 1;
+  int? get priority => 0;
   AppServices settings = Get.find();
   @override
   RouteSettings? redirect(String? route) {
-    print("======");
+    print(settings.cache.getString("onboarding").runtimeType);
     if (settings.cache.getString("onboarding") == "1") {
-      print("------");
       return const RouteSettings(name: AppRoute.login);
     }
   }

@@ -3,7 +3,6 @@ import 'package:ecommers2024/core/localization/translation.dart';
 import 'package:ecommers2024/core/services/setting_app.dart';
 import 'package:ecommers2024/my_binding.dart';
 import 'package:ecommers2024/routes.dart';
-import 'package:ecommers2024/view/screen/language_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,12 +22,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Ecommers',
       debugShowCheckedModeBanner: false,
+      initialBinding: MyBinding(),
       translations: LanguageApp(),
       theme: ThemeData(fontFamily: "Playfair", primarySwatch: Colors.blue),
-      home: const LanguagePage(),
       locale: controller.currentLang,
       getPages: routes,
-      initialBinding: MyBinding(),
     );
   }
 }
